@@ -10,9 +10,13 @@ export default function Cart({ onCloseCart }) {
   const totalAmount = `£${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const removeCartItem = (id) => {};
+  const removeCartItem = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const addCartItem = (item) => {};
+  const addCartItem = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
 
   return (
     <Modal onClose={onCloseCart}>
